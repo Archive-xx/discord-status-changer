@@ -11,4 +11,4 @@ this is against tos so dont use!!!
 ## how to run
 - put your desired options in configs/config.json and your desired messages in configs/words.txt
 - then
-- just run main.py and all packages should install
+- just run main.py and all packages should install (requests, colorama)
