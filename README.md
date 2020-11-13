@@ -9,4 +9,6 @@ this is against tos so dont use!!!
 ![](https://slab.shx.gg/dwreRX.gif)<br/>
 
 ## how to run
+- put your desired options in configs/config.json and your desired messages in configs/words.txt
+- then
 - just run main.py and all packages should install
