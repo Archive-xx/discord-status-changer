@@ -1,9 +1,8 @@
+import os
+import json
+import time
 try:
-    import os
-    import json
-    import time
     import requests
-
     from colorama import Fore, init
 except ModuleNotFoundError:
     os.system("pip3 install colorama requests")
