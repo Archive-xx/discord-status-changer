@@ -38,7 +38,7 @@ while True:
             json = {"custom_status": {"text": words[i], "emoji_name": config["emoji_name"], "emoji_id": config["emoji_id"]}}
             r = requests.patch("https://canary.discord.com/api/v8/users/@me/settings", headers=headers, json=json)
 
-            if r.status_code == 401:
+            if r.status_code == 401: # UNAUTHORIZED
                 print(f"{Fore.RED}Invalid token...{Fore.RESET}")
                 os.system("pause >NUL")
                 os._exit(0)
