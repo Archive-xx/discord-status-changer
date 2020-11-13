@@ -9,4 +9,4 @@ this is against tos so dont use!!!
 ![](https://slab.shx.gg/dwreRX.gif)<br/>
 
 ## how to run
-- just run main.py
+- just run main.py and all packages should install
