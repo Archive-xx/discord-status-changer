@@ -30,23 +30,23 @@ headers = {
     "Accept": "*/*"
 }
 
+if __name__ == "__main__":
+    while True:
+        for i in range(len(words)):
+            try:
+                json = {"custom_status": {"text": words[i], "emoji_name": config["emoji_name"], "emoji_id": config["emoji_id"]}}
+                r = requests.patch("https://canary.discord.com/api/v8/users/@me/settings", headers=headers, json=json)
 
-while True:
-    for i in range(len(words)):
-        try:
-            json = {"custom_status": {"text": words[i], "emoji_name": config["emoji_name"], "emoji_id": config["emoji_id"]}}
-            r = requests.patch("https://canary.discord.com/api/v8/users/@me/settings", headers=headers, json=json)
+                if r.status_code == 401: # UNAUTHORIZED
+                    print(f"{Fore.RED}Invalid token...{Fore.RESET}")
+                    os.system("pause >NUL")
+                    os._exit(0)
 
-            if r.status_code == 401: # UNAUTHORIZED
-                print(f"{Fore.RED}Invalid token...{Fore.RESET}")
-                os.system("pause >NUL")
-                os._exit(0)
+                elif config["log_changes"] == True:
+                    print(f"{Fore.GREEN}>{Fore.RESET} Changed status to: {Fore.GREEN}{words[i]}{Fore.RESET}")
+                succeses += 1
+                os.system(f"title [Discord-status-changer] - errors: {errors} ^| status changed: {succeses}")
 
-            elif config["log_changes"] == True:
-                print(f"{Fore.GREEN}>{Fore.RESET} Changed status to: {Fore.GREEN}{words[i]}{Fore.RESET}")
-            succeses += 1
-            os.system(f"title [Discord-status-changer] - errors: {errors} ^| status changed: {succeses}")
-
-            time.sleep(int(config["timeout"]))
-        except:
-            errors += 1
+                time.sleep(int(config["timeout"]))
+            except:
+                errors += 1
