@@ -9,9 +9,6 @@ except ModuleNotFoundError:
 
 init()
 
-errors = 0
-succeses = 0
-
 os.system("cls" if os.name == "nt" else "clear") # so it should work on windows and linux
 
 with open("configs/words.txt", "r", encoding="UTF-8") as f:
@@ -31,6 +28,9 @@ headers = {
 }
 
 if __name__ == "__main__":
+    errors = 0
+    succeses = 0
+
     while True:
         for i in range(len(words)):
             try:
